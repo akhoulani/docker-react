@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - dokcer build -t akhoulani/docker-react -f Dockerfile.dev .
+
+script:
+  - dokcer run --e=CI=true akhoulani/docker-react npm run test 
+  
